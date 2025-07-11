@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class AccountPage:
@@ -9,4 +11,12 @@ class AccountPage:
     my_account_xpath = "//h2[normalize-space()='My Account']"
 
     def validate_my_account_text(self):
-        return self.driver.find_element(By.XPATH,self.my_account_xpath).is_displayed()
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, self.my_account_xpath))
+            )
+            return self.driver.find_element(By.XPATH, self.my_account_xpath).is_displayed()
+        except:
+            return False
+
+    # return self.driver.find_element(By.XPATH,self.my_account_xpath).is_displayed()
