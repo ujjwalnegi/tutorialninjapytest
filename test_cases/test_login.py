@@ -10,7 +10,6 @@ from utilities import ExcelUtils
 
 # @pytest.mark.usefixtures("setup_and_teardown")
 class TestLogin(BaseTest):
-    driver = None
 
     @pytest.mark.parametrize("valid_email,password",ExcelUtils.get_data_from_excel("ExcelFiles/tutorialninja.xlsx","LoginCred"))
     def test_login_with_valid_credentials(self,valid_email,password):

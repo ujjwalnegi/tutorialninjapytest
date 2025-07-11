@@ -11,7 +11,6 @@ from test_cases.BaseTest import BaseTest
 
 # @pytest.mark.usefixtures("setup_and_teardown")
 class TestRegister(BaseTest):
-    driver = None
 
     def test_register(self):
         home_page = HomePage(self.driver)

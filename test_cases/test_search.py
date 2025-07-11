@@ -9,7 +9,6 @@ from test_cases.BaseTest import BaseTest
 
 # @pytest.mark.usefixtures("setup_and_teardown")
 class TestSearch(BaseTest):
-    driver = None
 
     def test_search_for_a_valid_product(self):
         home_page = HomePage(self.driver)
