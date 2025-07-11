@@ -12,10 +12,10 @@ class AccountPage:
 
     def validate_my_account_text(self):
         try:
-            WebDriverWait(self.driver, 10).until(
+            element = WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, self.my_account_xpath))
             )
-            return self.driver.find_element(By.XPATH, self.my_account_xpath).is_displayed()
+            return element.is_displayed()
         except:
             return False
 
