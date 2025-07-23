@@ -76,8 +76,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from utilities.ReadConfigurations import read_configuration
-
+from utilities.ReadConfigurations import ReadConfigurations
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default=None, help="Browser name")
@@ -89,7 +88,7 @@ def setup_and_teardown(request):
     browser = request.config.getoption("--browser")
 
     # Fallback to config.ini if CLI not given
-    if browser is None:
+    if not browser:
         browser = ReadConfigurations.read_configuration("basic info", "browser")
 
     app_url = ReadConfigurations.read_configuration("basic info", "url")
