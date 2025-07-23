@@ -76,7 +76,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from utilities.readConfigurations import ReadConfigurations
+from utilities.ReadConfigurations import read_configuration
 
 
 def pytest_addoption(parser):
